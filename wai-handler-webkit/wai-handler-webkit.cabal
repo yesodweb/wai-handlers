@@ -27,4 +27,4 @@ library
 
 source-repository head
   type:     git
-  location: git://github.com/yesodweb/wai.git
+  location: git://github.com/yesodweb/wai-handlers.git

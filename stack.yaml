@@ -1,1 +1,10 @@
-stack-lts-12.yaml
+resolver: lts-12.6
+packages:
+- wai-handler-fastcgi
+- wai-handler-launch
+- wai-handler-webkit
+nix:
+  enable: false
+  packages:
+  - fcgi
+  - zlib
