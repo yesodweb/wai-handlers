@@ -1,3 +1,7 @@
+## 3.0.3
+
+* Add `runHostPortFullUrl` to allow launching arbitrary URLs [#2](https://github.com/yesodweb/wai-handlers/pull/2)
+
 ## 3.0.2.4
 
 * Drop dependency on blaze-builder, requiring streaming-commons >= 0.2
