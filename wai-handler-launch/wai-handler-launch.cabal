@@ -15,7 +15,7 @@ Library
     Exposed-modules: Network.Wai.Handler.Launch
     build-depends:   base                    >= 4       && < 5
                    , wai                     >= 3.0     && < 3.3
-                   , warp                    >= 3.0     && < 3.3
+                   , warp                    >= 3.0     && < 3.4
                    , http-types              >= 0.7
                    , transformers            >= 0.2.2
                    , bytestring              >= 0.10.4
