@@ -8,3 +8,7 @@ nix:
   packages:
   - fcgi
   - zlib
+
+flags:
+  wai-handler-webkit:
+    demo: true

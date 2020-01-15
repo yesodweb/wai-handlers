@@ -1,6 +1,6 @@
 #include <QApplication>
 #include <QPushButton>
-#include <QtWebKit>
+#include <QWebView>
 
 extern "C" {
     int start_browser(char *title)

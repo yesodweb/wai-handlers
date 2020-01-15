@@ -74,7 +74,7 @@ matrix:
   # variable, such as using --stack-yaml to point to a different file.
   - env: BUILD=stack ARGS=""
     compiler: ": #stack default"
-    addons: {apt: {packages: [libfcgi-dev,libgmp-dev]}}
+    addons: {apt: {packages: [libfcgi-dev,libgmp-dev,libqt5webkit5-dev]}}
 
   #- env: BUILD=stack ARGS="--resolver lts-2"
   #  compiler: ": #stack 7.8.4"
@@ -86,7 +86,7 @@ matrix:
 
   - env: BUILD=stack ARGS="--resolver lts-6"
     compiler: ": #stack 7.10.3"
-    addons: {apt: {packages: [libfcgi-dev,libgmp-dev]}}
+    addons: {apt: {packages: [libfcgi-dev,libgmp-dev,libqt5webkit5-dev]}}
 
   #- env: BUILD=stack ARGS="--resolver lts-7"
   #  compiler: ": #stack 8.0.1"
@@ -94,20 +94,20 @@ matrix:
 
   - env: BUILD=stack ARGS="--resolver lts-9"
     compiler: ": #stack 8.0.2"
-    addons: {apt: {packages: [libfcgi-dev,libgmp-dev]}}
+    addons: {apt: {packages: [libfcgi-dev,libgmp-dev,libqt5webkit5-dev]}}
 
   - env: BUILD=stack ARGS="--resolver lts-11"
     compiler: ": #stack 8.2.2"
-    addons: {apt: {packages: [libfcgi-dev,libgmp-dev]}}
+    addons: {apt: {packages: [libfcgi-dev,libgmp-dev,libqt5webkit5-dev]}}
 
   - env: BUILD=stack ARGS="--resolver lts-12"
     compiler: ": #stack 8.4.3"
-    addons: {apt: {packages: [libfcgi-dev,libgmp-dev]}}
+    addons: {apt: {packages: [libfcgi-dev,libgmp-dev,libqt5webkit5-dev]}}
 
   # Nightly builds are allowed to fail
   - env: BUILD=stack ARGS="--resolver nightly"
     compiler: ": #stack nightly"
-    addons: {apt: {packages: [libfcgi-dev,libgmp-dev]}}
+    addons: {apt: {packages: [libfcgi-dev,libgmp-dev,libqt5webkit5-dev]}}
 
   # Build on macOS in addition to Linux
   #- env: BUILD=stack ARGS=""
