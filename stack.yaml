@@ -2,7 +2,7 @@ resolver: lts-12.6
 packages:
 - wai-handler-fastcgi
 - wai-handler-launch
-- wai-handler-webkit
+#- wai-handler-webkit
 nix:
   enable: false
   packages:
