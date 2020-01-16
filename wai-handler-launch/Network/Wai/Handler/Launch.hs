@@ -6,6 +6,7 @@ module Network.Wai.Handler.Launch
     , runUrl
     , runUrlPort
     , runHostPortUrl
+    , runHostPortFullUrl
     ) where
 
 import Network.Wai
@@ -165,21 +166,21 @@ fixHeaders front (x:xs) = fixHeaders (front . (:) x) xs
 
 #if WINDOWS
 foreign import ccall "launch"
-    launch' :: Int -> CString -> IO ()
+    launch' :: CString -> IO ()
 #endif
 
-launch :: Int -> String -> IO ()
+launch :: String -> IO ()
 
 #if WINDOWS
-launch port s = withCString s $ launch' port
+launch url = withCString url $ launch' url
 #else
-launch port s = forkIO (rawSystem
+launch url = forkIO (rawSystem
 #if MAC
     "open"
 #else
     "xdg-open"
 #endif
-    ["http://127.0.0.1:" ++ show port ++ "/" ++ s] >> return ()) >> return ()
+    [url] >> return ()) >> return ()
 #endif
 
 run :: Application -> IO ()
@@ -195,7 +196,13 @@ runUrlPort = runHostPortUrl "*4"
 --
 -- @since 3.0.1
 runHostPortUrl :: String -> Int -> String -> Application -> IO ()
-runHostPortUrl host port url app = do
+runHostPortUrl host port url app = runHostPortFullUrl host port ("http://127.0.0.1:" ++ show port ++ "/" ++ url) app
+
+-- | Generic version of runHostPortUrl that allows arbitrary URLs to launch
+--
+-- @since 3.0.2.5
+runHostPortFullUrl :: String -> Int -> String -> Application -> IO ()
+runHostPortFullUrl host port url app = do
     ready <- newEmptyMVar
     active <- newIORef True
     let settings =
@@ -210,7 +217,7 @@ runHostPortUrl host port url app = do
       -- serve app, keep updating the activity flag
       (Warp.runSettings settings (ping active app))
       -- wait for server startup, launch browser, poll until server idle
-      (takeMVar ready >> launch port url >> loop active)
+      (takeMVar ready >> launch url >> loop active)
 
 loop :: IORef Bool -> IO ()
 loop active = do
