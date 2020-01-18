@@ -1,3 +1,9 @@
+# ChangeLog for wai-handler-launch
+
+## 3.0.3.1
+
+* Fix compilation on Windows
+
 ## 3.0.3
 
 * Add `runHostPortFullUrl` to allow launching arbitrary URLs [#2](https://github.com/yesodweb/wai-handlers/pull/2)

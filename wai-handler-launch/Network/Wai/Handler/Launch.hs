@@ -172,7 +172,7 @@ foreign import ccall "launch"
 launch :: String -> IO ()
 
 #if WINDOWS
-launch url = withCString url $ launch' url
+launch url = withCString url launch'
 #else
 launch url = forkIO (rawSystem
 #if MAC
