@@ -188,5 +188,5 @@ environToTable arr = do
     return $ map splitEq ss
   where
     splitEq s =
-        let (a, b) = S.breakByte 61 s
+        let (a, b) = S.break (== 61) s
          in (a, S.drop 1 b)
